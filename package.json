@@ -1,5 +1,5 @@
 {
-  "name": "ims",
+  "name": "gfg-next-mui",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,13 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.0",
+    "@emotion/server": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "@mui/material": "^5.10.0",
     "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "eslint": "8.21.0",
-    "eslint-config-next": "12.2.5",
-    "sass": "^1.54.4"
+    "eslint": "8.22.0",
+    "eslint-config-next": "12.2.5"
   }
 }
