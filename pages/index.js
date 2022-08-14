@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>IMS Home Page</title>
+        <title>Bebsaa Home Page</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
@@ -45,8 +45,17 @@ export default function Home() {
 
           >
             <Item className={styles.gridBorder}>
-              <h1>OnShop</h1>
-              <h4>Open your Shop online in 2 minutes</h4>
+           
+           
+              <Image
+               className={styles.makeImageCircular} 
+                src="/images/logo.jpeg"
+                alt="You are as shop owner"
+                width={150}
+                height={60}
+              />
+
+              <h4>Open your Business online in 2 minutes</h4>
               <h4>and Let others discover your business online.</h4>
 
               <FormControl>
