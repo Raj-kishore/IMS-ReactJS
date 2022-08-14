@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import Image from 'next/image';
 import { styled } from '@mui/material/styles';
+import Link from 'next/link'
 
 import { Grid, Paper, Button, TextField, FormControl, InputLabel, Input, FormHelperText } from '@mui/material';
 const Item = styled(Paper)(({ theme }) => ({
@@ -19,15 +20,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <Grid  
-        container
-        direction="row"
-        justifyContent="center"
-        alignItems="stretch"
-        rowSpacing={1} 
-        spacing={2}
+        <Grid
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="stretch"
+          rowSpacing={1}
+          spacing={2}
         >
-          <Grid  item xs={6}>
+          <Grid item xs={6}>
             <Item className={styles.gridBorder}>
               <Image
                 className={styles.leftPanel}
@@ -40,26 +41,32 @@ export default function Home() {
           </Grid>
 
 
-          <Grid    item xs={6} 
-           
+          <Grid item xs={6}
+
           >
             <Item className={styles.gridBorder}>
               <h1>OnShop</h1>
               <h4>Open your Shop online in 2 minutes</h4>
-             <h4>and Let others discover your business online.</h4>
+              <h4>and Let others discover your business online.</h4>
 
-                <FormControl>
-                  <TextField
-                    helperText="Please enter your phone number to login"
-                    id="my-input"
-                    label="Phone number"
-                    inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
-                  />
-                  <Button variant="outlined">Login</Button>
+              <FormControl>
+                <TextField
+                  helperText="Please enter your phone number or email to login"
+                  id="my-input"
+                  label="Phone number or Email"
+                  inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+                />
+                <Link href="/menu">
+                  <Button variant="outlined">
+                    Login
 
-                </FormControl>
-            
-<h5>OnShop is free of cost</h5>
+                  </Button>
+                </Link>
+
+
+              </FormControl>
+
+              <h5>OnShop is free of cost</h5>
             </Item>
           </Grid>
 
