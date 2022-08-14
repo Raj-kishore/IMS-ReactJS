@@ -12,6 +12,11 @@
   align-items: center;
 }
 
+.gridBorder{
+  border: 0!important; 
+  box-shadow: none!important;
+}
+
 .footer {
   display: flex;
   flex: 1;
