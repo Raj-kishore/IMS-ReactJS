@@ -34,21 +34,3 @@ If data is chaging on every request, in that case only server side rendering to 
 
 Rather than using server side rendering you can prefer, static generation with data using an async function called, getStaticProps. 
 
-getStaicProps
-in development, getStaicProps runs on every request. 
-in production, getStaicProps runs at build time. But you can configure it. 
-
-For server side rendering, use getServerSideProps instead of getStaticProps. 
-
-Time to first byte for getServerSideProps is going to be slower than getStaicProps. 
-
-Or you can prerender without data, then load data on client side. 
-
-You can use useSWR hook provided by next js, for client side data fetching. 
-Simply, 
-const { data, error } = useSWR('/api/user', fetch); // rather than using fetch or axios, useSWR can do that job
-
-
-// for static rendering : getStaicProps
-// for server side rendering : getServerSideProps
-// for static rendering as well as data fetching : useSWR
