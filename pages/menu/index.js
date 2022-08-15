@@ -1,8 +1,11 @@
 import Head from "next/head";
 import { useState } from "react";
+import { useSession, signIn, signOut } from "next-auth/react";
 import styles from "../../styles/Menu.module.scss";
 import { styled } from '@mui/material/styles';
-import Link from 'next/link'
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+
 
 import { Grid, Paper, Button, TextField, FormControl, InputLabel, Input, FormHelperText } from '@mui/material';
 const Item = styled(Paper)(({ theme }) => ({
@@ -15,41 +18,52 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function Home() {
 
     const [userName, setUserName] = useState();
+    const { data: session } = useSession();
+    const router = useRouter();
+
+    //const { accessToken } = data;
+
+    if (session) {
+        return <>
+            <div className={styles.container}>
+                <Head>
+                    <title>IMS Home Page</title>
+                    <link rel="icon" href="/favicon.ico" />
+                </Head>
+                <main className={styles.main}>
+                    Signed in as {session.user.email} <br />
+                    <button onClick={() => signOut({
+      callbackUrl: router.push('/')
+    })}>Sign out</button>
+                    {/* <div>Access Token: {accessToken}</div> */}
+                    <div className={styles.footer}>
+                        Copyrights 2022 | All Rights Reserved
+                    </div>
+                </main>
+            </div>
+        </>
+    }else{
+     //   router.push('/')
+    }
+ 
+
+    // return <>
+
+    //     <div className={styles.container}>
+    //         <Head>
+    //             <title>IMS Home Page</title>
+    //             <link rel="icon" href="/favicon.ico" />
+    //         </Head>
+    //         <main className={styles.main}>
+    //             Not signed in <br />
+    //             <button onClick={() => signIn()}>Sign in</button>
+    //             {/* <div>Access Token: {accessToken}</div> */}
+    //             <div className={styles.footer}>
+    //                 Copyrights 2022 | All Rights Reserved
+    //             </div>
+    //         </main>
+    //     </div>
+    // </>
 
 
-    return (
-        <div className={styles.container}>
-            <Head>
-                <title>IMS Home Page</title>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
-
-            <main className={styles.main}>
-                <p>Logged in as {userName}</p>
-                <p>
-                <Link href="/">
-          <a>Logout</a>
-        </Link>
-                    
-                    </p>
-                {/* <Grid  
-        container
-        direction="row"
-        justifyContent="center"
-        alignItems="stretch"
-        rowSpacing={1} 
-        spacing={2}
-        >
-        
-<h1>menu page</h1>
-
-
-        </Grid> */}
-
-                <div className={styles.footer}>
-                    Copyrights 2022 | All Rights Reserved
-                </div>
-            </main>
-        </div>
-    );
 }

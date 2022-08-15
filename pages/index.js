@@ -2,7 +2,10 @@ import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import Image from 'next/image';
 import { styled } from '@mui/material/styles';
-import Link from 'next/link'
+import Link from 'next/link';
+import { useSession, signIn, signOut } from "next-auth/react";
+import { useRouter } from 'next/router'
+
 
 import { Grid, Paper, Button, TextField, FormControl, InputLabel, Input, FormHelperText } from '@mui/material';
 const Item = styled(Paper)(({ theme }) => ({
@@ -13,6 +16,13 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 export default function Home() {
+  const { data: session } = useSession();
+  const router = useRouter()
+
+  if (session) {
+    //redirect to menu
+    router.push('/menu')
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -39,47 +49,36 @@ export default function Home() {
               />
             </Item>
           </Grid>
-
-
           <Grid item xs={6}
-
           >
             <Item className={styles.gridBorder}>
-           
-           
               <Image
-               className={styles.makeImageCircular} 
-                src="/images/logo.jpeg"
+                className={styles.makeImageCircular}
+                src="/images/download.jpeg"
                 alt="You are as shop owner"
                 width={150}
-                height={60}
+                height={150}
               />
-
+              {/* <h1>BeBSaa</h1> */}
               <h4>Open your Business online in 2 minutes</h4>
               <h4>and Let others discover your business online.</h4>
-
+              <h5>Bebsaa is free to use</h5>
               <FormControl>
-                <TextField
+                {/* <TextField
                   helperText="Please enter your phone number or email to login"
                   id="my-input"
                   label="Phone number or Email"
                   inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
-                />
-                <Link href="/menu">
-                  <Button variant="outlined">
-                    Login
-
+                /> */}
+                {/* <Link href="/menu"> */}
+                  <Button variant="outlined" onClick={() => signIn()}>
+                    sign in
                   </Button>
-                </Link>
-
-
+                {/* </Link> */}
               </FormControl>
-
-              <h5>OnShop is free of cost</h5>
+            
             </Item>
           </Grid>
-
-
         </Grid>
         <div className={styles.footer}>
           Copyrights 2022 | All Rights Reserved
