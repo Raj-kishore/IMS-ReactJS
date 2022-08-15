@@ -9,6 +9,7 @@ import createEmotionCache from '../src/createEmotionCache';
 import { SessionProvider } from "next-auth/react"
 import ErrorBoundary from '../components/ErrorBoundary';
 
+import { wrapper } from "../redux/store"
 
 // Client-side cache shared for the whole session
 // of the user in the browser.
@@ -16,7 +17,7 @@ import ErrorBoundary from '../components/ErrorBoundary';
 const clientSideEmotionCache = createEmotionCache();
 const uniqueKey = 12325324534;
 
-export default function MyApp(props) {
+function MyApp(props) {
 	const { Component, emotionCache =
 		clientSideEmotionCache, pageProps: { session, ...pageProps } } = props;
 
@@ -46,6 +47,8 @@ export default function MyApp(props) {
 		</ErrorBoundary>
 	);
 }
+
+export default wrapper.withRedux(MyApp);
 
 MyApp.propTypes = {
 	Component: PropTypes.elementType.isRequired,

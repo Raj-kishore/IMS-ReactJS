@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { useTable, usePagination, useRowSelect } from 'react-table'
+import makeData from './makeData';
 
-import makeData from './makeData'
+
+import { connect } from "react-redux"
+import { setInfo } from "../redux/actions/main"
 
 const Styles = styled.div`
   padding: 1rem;
@@ -214,7 +217,9 @@ function Table({ columns, data }) {
   )
 }
 
-function ReactTable() {
+function ReactTable(props) {
+  const { name, setInfo } = props;
+
   const columns = React.useMemo(
     () => [
       {
@@ -255,7 +260,13 @@ function ReactTable() {
     []
   )
 
-  const data = React.useMemo(() => makeData(100000), [])
+  const data = React.useMemo(() => makeData(100000), []);
+
+  useEffect(()=>{
+    //store this data in redux for every data update. 
+    setInfo(data)
+
+  },[]);
 
   return (
     <Styles>
@@ -264,4 +275,20 @@ function ReactTable() {
   )
 }
 
-export default ReactTable;
+
+
+const mapStateToProps = state => {
+  return { name: state.main.name }
+ }
+ 
+ const mapDispatchToProps = {
+   setInfo
+ }
+
+
+ export default connect(mapStateToProps, mapDispatchToProps)(ReactTable)
+
+//export default ReactTable;
+
+
+//ref : https://react-table-v7.tanstack.com/docs/installation
