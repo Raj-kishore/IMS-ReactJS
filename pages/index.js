@@ -61,8 +61,8 @@ export default function Home() {
               />
               {/* <h1>BeBSaa</h1> */}
               <h4>Open your Business online in 2 minutes</h4>
-              <h4>and Let others discover your business online.</h4>
-              <h5>Bebsaa is free to use</h5>
+              <h4>and Let others discover you online.</h4>
+              <h5>Bebsaa is free and easy to use</h5>
               <FormControl>
                 {/* <TextField
                   helperText="Please enter your phone number or email to login"

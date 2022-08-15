@@ -32,9 +32,7 @@ export default function Home() {
                 </Head>
                 <main className={styles.main}>
                     Signed in as {session.user.email} <br />
-                    <button onClick={() => signOut({
-      callbackUrl: router.push('/')
-    })}>Sign out</button>
+                    <button onClick={() => signOut()}>Sign out</button>
                     {/* <div>Access Token: {accessToken}</div> */}
                     <div className={styles.footer}>
                         Copyrights 2022 | All Rights Reserved
