@@ -26,7 +26,20 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 
 
+
+import dynamic from 'next/dynamic'
+import { Suspense } from 'react'
+
 import { Grid, Paper, Button, CardActionArea, CardActions, TextField, FormControl, InputLabel, Input, FormHelperText } from '@mui/material';
+
+
+
+// import ReactTable from '../../components/ReactTable';
+const ReactTable = dynamic(() => import('../../components/ReactTable'), {
+    suspense: true,
+})
+
+
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
@@ -260,11 +273,10 @@ export default function Home() {
                     {/* headless tanstack react table implementation starts here */}
 
 
+                    <Suspense fallback={"Inventories Loading... Please wait... "}>
+                        <ReactTable></ReactTable>
 
-
-
-
-
+                    </Suspense>
 
                     {/* headless tanstack react table implementation ends here */}
 

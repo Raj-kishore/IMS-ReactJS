@@ -14,16 +14,19 @@
     "@emotion/styled": "^11.10.0",
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.10.0",
-    "@tanstack/react-table": "^8.5.11",
     "next": "12.2.5",
     "next-auth": "^4.10.3",
     "nodemailer": "^6.7.8",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sass": "^1.54.4"
+    "react-loader-spinner": "^5.1.7-beta.1",
+    "react-table": "^7.8.0",
+    "sass": "^1.54.4",
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "eslint": "8.22.0",
-    "eslint-config-next": "12.2.5"
+    "eslint-config-next": "12.2.5",
+    "namor": "^2.0.4"
   }
 }

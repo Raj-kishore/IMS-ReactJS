@@ -41,8 +41,8 @@ export default function Home() {
           <Grid item xs={6}>
             <Item className={styles.gridBorder}>
               <Image
-                className={styles.leftPanel}
-                src="/images/shop-owner.jpg"
+                className={[styles.leftPanel , styles.makeImageCircular].join(" ")}
+                src="/images/download.jpeg"
                 alt="You are as shop owner"
                 width={500}
                 height={500}
@@ -54,7 +54,7 @@ export default function Home() {
             <Item className={styles.gridBorder}>
               <Image
                 className={styles.makeImageCircular}
-                src="/images/download.jpeg"
+                src="/images/shop-owner.jpg"
                 alt="You are as shop owner"
                 width={150}
                 height={150}

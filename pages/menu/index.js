@@ -180,6 +180,9 @@ export default function Home() {
 
 
     //const { accessToken } = data;
+    // if(true){ // testing whther ErrorBoundary class handling the error or not
+    //     throw new Error("Something went wrong. pls contact naffal.report@gmail.com"); // this will throw error when the user lands at menu page. 
+    // }
 
     if (session) {
         return <>

@@ -1,4 +1,6 @@
-import React from "react"
+import React from "react";
+import styles from "../styles/Error.module.scss";
+
 
 //since functional components don't support error boundry as of React 18. 
 // I decided to create a ErrorBoudnry class in class based component and 
@@ -33,7 +35,7 @@ class ErrorBoundary extends React.Component { // advanced
       super(props)
   
       // Define a state variable to track whether is an error or not
-      this.state = { hasError: false }
+      this.state = { hasError: false, error : "" }
     }
     static getDerivedStateFromError(error) {
       // Update state so the next render will show the fallback UI
@@ -42,21 +44,27 @@ class ErrorBoundary extends React.Component { // advanced
     }
     componentDidCatch(error, errorInfo) {
       // You can use your own error logging service here
-      console.log({ error, errorInfo })
+      console.log({ error, errorInfo });
+      this.setState({error: `${error.name}: ${error.message}`});
     }
     render() {
+      const {error} = this.state.error;
       // Check if the error is thrown
       if (this.state.hasError) {
         // You can render any custom fallback UI
         return (
-          <div>
+          <div className={styles.container}>
+            <div>
             <h2>Oops, there is an error!</h2>
-            <button
+            <div className={styles.messageWrapper}>{this.state.error}</div>
+            </div>
+       
+            {/* <button
               type="button"
               onClick={() => this.setState({ hasError: false })}
             >
               Try again?
-            </button>
+            </button> */}
           </div>
         )
       }
