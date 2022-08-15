@@ -7,18 +7,21 @@ import { CacheProvider } from '@emotion/react';
 import theme from '../src/Theme'
 import createEmotionCache from '../src/createEmotionCache';
 import { SessionProvider } from "next-auth/react"
+import ErrorBoundary from './ErrorBoundary';
 
 
 // Client-side cache shared for the whole session
 // of the user in the browser.
 
 const clientSideEmotionCache = createEmotionCache();
+const uniqueKey = 12325324534;
 
 export default function MyApp(props) {
 	const { Component, emotionCache =
 		clientSideEmotionCache, pageProps: {session, ...pageProps} } = props;
 
 	return (
+<ErrorBoundary key={uniqueKey}>
 
     <SessionProvider session={session}>
 
@@ -39,6 +42,7 @@ export default function MyApp(props) {
 		</CacheProvider>
 
     </SessionProvider>
+	</ErrorBoundary>
 	);
 }
 

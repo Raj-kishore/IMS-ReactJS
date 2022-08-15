@@ -185,7 +185,7 @@ export default function Home() {
         return <>
             <div className={styles.container}>
                 <Head>
-                    <title>Bebsaa Menu</title>
+                    <title>Bebsaa Inventory</title>
                     <link rel="icon" href="/favicon.ico" />
                 </Head>
 
@@ -257,6 +257,17 @@ export default function Home() {
                     {/* <div>Access Token: {accessToken}</div> */}
 
 
+                    {/* headless tanstack react table implementation starts here */}
+
+
+
+
+
+
+
+
+                    {/* headless tanstack react table implementation ends here */}
+
 
 
                     <Grid
@@ -264,95 +275,12 @@ export default function Home() {
                         rowSpacing={1}
                         columnSpacing={{ xs: 1, sm: 2, md: 3 }}
                         justifyContent="center"
-
                     >
-                        <Grid item xs={3}>
-                            <Item className={styles.menuCard}>
 
-                                <Card sx={{ maxWidth: 345 }}>
-                                    <CardActionArea>
-                                        <CardMedia
-                                            component="img"
-                                            height="140"
-                                            image="/images/inventory.png"
-                                            alt="green iguana"
-                                        />
-                                        <CardContent>
-                                            <Typography gutterBottom variant="h5" component="div">
-                                                Inventories
-                                            </Typography>
-                                            <Typography variant="body2" color="text.secondary">
-                                                Place to store your Inventories list.
-                                            </Typography>
-                                        </CardContent>
-                                    </CardActionArea>
-                                    <CardActions>
-                                        <Link href="/inventory"> 
-                                        <Button size="small" color="primary">
-                                            Go to Inventories
-                                        </Button>
-                                        </Link>
-                          
-                                    </CardActions>
-                                </Card>
-                            </Item>
-                        </Grid>
-                        <Grid item xs={3}>
+                        {/* <Grid item xs={3}>
                             <Item className={styles.menuCard}>
-
-                                <Card sx={{ maxWidth: 345 }}>
-                                    <CardActionArea>
-                                        <CardMedia
-                                            component="img"
-                                            height="140"
-                                            image="/images/invoice.png"
-                                            alt="green iguana"
-                                        />
-                                        <CardContent>
-                                            <Typography gutterBottom variant="h5" component="div">
-                                                Invoices
-                                            </Typography>
-                                            <Typography variant="body2" color="text.secondary">
-                                                Manage invoices.
-                                            </Typography>
-                                        </CardContent>
-                                    </CardActionArea>
-                                    <CardActions>
-                                        <Button size="small" color="primary">
-                                            Go to Invoices
-                                        </Button>
-                                    </CardActions>
-                                </Card>
                             </Item>
-                        </Grid>
-                        <Grid item xs={3}>
-                            <Item className={styles.menuCard}>
-
-                                <Card sx={{ maxWidth: 345 }}>
-                                    <CardActionArea>
-                                        <CardMedia
-                                            component="img"
-                                            height="140"
-                                            image="/images/report.png"
-                                            alt="green iguana"
-                                        />
-                                        <CardContent>
-                                            <Typography gutterBottom variant="h5" component="div">
-                                                Reports
-                                            </Typography>
-                                            <Typography variant="body2" color="text.secondary">
-                                                CHECK PROFIT AND LOSS ANALYTICS
-                                            </Typography>
-                                        </CardContent>
-                                    </CardActionArea>
-                                    <CardActions>
-                                        <Button size="small" color="primary">
-                                            Go to analytics
-                                        </Button>
-                                    </CardActions>
-                                </Card>
-                            </Item>
-                        </Grid>
+                        </Grid> */}
 
 
                     </Grid>

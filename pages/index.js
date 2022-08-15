@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Bebsaa Home Page</title>
+        <title>Bebsaa Home</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
